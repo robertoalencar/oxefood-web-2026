@@ -20,22 +20,47 @@ export default function ClientePage() {
 
     return (
 
-        <div>
+        <div class="max-h-46 overflow-x-auto">
 
-            <h1>Clientes</h1>
+            <div className="flex items-center justify-between mb-6">
 
-            {lista.map(cliente => (
+                <h1 className="text-3xl font-bold text-gray-800">
+                    Clientes
+                </h1>
 
-                <div key={cliente.id}>
+                <button className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg shadow">
+                    Novo Cliente
+                </button>
 
-                    {cliente.nome} - {cliente.cpf}
+            </div>
 
-                </div>
+            <table class="min-w-full divide-y-2 divide-gray-200">
 
-            ))}
+                <thead class="sticky top-0 bg-white ltr:text-left rtl:text-right">
+                    <tr class="*:font-medium *:text-gray-900">
+                        <th class="px-3 py-2 whitespace-nowrap">Nome</th>
+                        <th class="px-3 py-2 whitespace-nowrap">CPF</th>
+                        <th class="px-3 py-2 whitespace-nowrap">DT Nascimento</th>
+                        <th class="px-3 py-2 whitespace-nowrap">Salary</th>
+                    </tr>
+                </thead>
 
+                <tbody class="divide-y divide-gray-200">
+
+                    {lista.map(cliente => (
+
+                        <tr class="*:text-gray-900 *:first:font-medium">
+                            <td class="px-3 py-2 whitespace-nowrap">{cliente.nome}</td>
+                            <td class="px-3 py-2 whitespace-nowrap">{cliente.cpf}</td>
+                            <td class="px-3 py-2 whitespace-nowrap">{cliente.dataNascimento}</td>
+                            <td class="px-3 py-2 whitespace-nowrap">$0</td>
+                        </tr>
+
+                    ))}
+
+                </tbody>
+            </table>
         </div>
 
     );
-
 }
