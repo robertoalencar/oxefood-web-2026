@@ -1,5 +1,10 @@
 import { useEffect, useState } from "react";
-
+import Breadcrumbs from "../../../shared/components/Breadcrumbs";
+import CrudActions from "../../../shared/components/CrudActions";
+import Footer from "../../../shared/components/Footer";
+import Menu from "../../../shared/components/Menu";
+import NewButton from "../../../shared/components/NewButton";
+import { formatarData } from "../../../shared/util/dateUtils";
 import { listar } from "../service/clienteService";
 
 export default function ClientePage() {
@@ -18,49 +23,86 @@ export default function ClientePage() {
         setLista(data);
     }
 
+    function editar(id) {
+
+    }
+
+    async function confirmarRemover(id) {
+
+        if (confirm("Deseja realmente excluir este cliente?")) {
+
+            //await remover(id);
+            //carregar();
+        }
+    }
+
     return (
 
-        <div class="max-h-46 overflow-x-auto">
+        <div>
 
-            <div className="flex items-center justify-between mb-6">
+            <Menu />
 
-                <h1 className="text-3xl font-bold text-gray-800">
-                    Clientes
-                </h1>
+            <Breadcrumbs items={[
+                { label: "Cliente" },
+                { label: "Listar" }
+            ]} />
 
-                <button className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg shadow">
-                    Novo Cliente
-                </button>
+            <div style={{ marginTop: '40px', marginLeft: '10%', marginRight: '10%' }}>
 
+                <div className="overflow-x-auto shadow-sm">
+
+                    <div className="flex items-center justify-between mb-6" style={{marginTop: '20px', marginLeft: '10px', marginRight: '10px'}}>
+
+                        <h1 className="text-3xl font-bold text-gray-800">
+                            Clientes
+                        </h1>
+
+                        <NewButton destino="/cliente" />
+
+                    </div>
+
+                    <div className="divider divider-info" />
+
+                    <div className="overflow-x-auto" style={{marginTop: '30px'}}>
+                        <table className="table table-zebra">
+                            <thead>
+                                <tr>
+                                    <th>Nome</th>
+                                    <th>CPF</th>
+                                    <th>Data de Nascimento</th>
+                                    <th>Fone Celular</th>
+                                    <th>Fone Fixo</th>
+                                    <th>Ações</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                {lista.map(cliente => (
+
+                                    <tr key={cliente.id}>
+                                        <td>{cliente.nome}</td>
+                                        <td>{cliente.cpf}</td>
+                                        <td>{formatarData(cliente.dataNascimento)}</td>
+                                        <td>{cliente.foneCelular}</td>
+                                        <td>{cliente.foneFixo}</td>
+                                        <td>
+                                            <CrudActions
+                                                onEdit={() => editar(cliente.id)}
+                                                onDelete={() => confirmarRemover(cliente.id)}
+                                            />
+                                        </td>
+                                    </tr>
+
+                                ))}
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
 
-            <table class="min-w-full divide-y-2 divide-gray-200">
+            <Footer />
 
-                <thead class="sticky top-0 bg-white ltr:text-left rtl:text-right">
-                    <tr class="*:font-medium *:text-gray-900">
-                        <th class="px-3 py-2 whitespace-nowrap">Nome</th>
-                        <th class="px-3 py-2 whitespace-nowrap">CPF</th>
-                        <th class="px-3 py-2 whitespace-nowrap">DT Nascimento</th>
-                        <th class="px-3 py-2 whitespace-nowrap">Salary</th>
-                    </tr>
-                </thead>
-
-                <tbody class="divide-y divide-gray-200">
-
-                    {lista.map(cliente => (
-
-                        <tr class="*:text-gray-900 *:first:font-medium">
-                            <td class="px-3 py-2 whitespace-nowrap">{cliente.nome}</td>
-                            <td class="px-3 py-2 whitespace-nowrap">{cliente.cpf}</td>
-                            <td class="px-3 py-2 whitespace-nowrap">{cliente.dataNascimento}</td>
-                            <td class="px-3 py-2 whitespace-nowrap">$0</td>
-                        </tr>
-
-                    ))}
-
-                </tbody>
-            </table>
         </div>
-
     );
 }

@@ -1,6 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 import ClientePage from "../features/cliente/page/ClientePage";
+import HomePage from "../features/home/page/Home";
 
 export default function Router() {
 
@@ -10,6 +11,7 @@ export default function Router() {
 
             <Routes>
 
+                <Route path="/home" element={<HomePage />} />
                 <Route path="/cliente" element={<ClientePage />} />
 
             </Routes>
