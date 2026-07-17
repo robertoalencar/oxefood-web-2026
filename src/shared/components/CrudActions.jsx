@@ -6,7 +6,7 @@ export default function CrudActions({ onEdit, onDelete }) {
 
             {/* Alterar */}
 
-            <button className="btn btn-soft btn-warning" onClick={onEdit}>
+            <button className="btn btn-warning" onClick={onEdit}>
 
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -25,13 +25,11 @@ export default function CrudActions({ onEdit, onDelete }) {
 
                 </svg>
 
-                Editar
-
             </button>
 
             {/* Remover */}
 
-            <button className="btn btn-soft btn-error" onClick={onDelete}>
+            <button className="btn btn-error" onClick={onDelete}>
 
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -49,8 +47,6 @@ export default function CrudActions({ onEdit, onDelete }) {
                     />
 
                 </svg>
-
-                Remover
 
             </button>
 

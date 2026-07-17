@@ -57,7 +57,7 @@ export default function ClientePage() {
                             Clientes
                         </h1>
 
-                        <NewButton destino="/cliente" />
+                        <NewButton destino="/cliente-form" />
 
                     </div>
 
