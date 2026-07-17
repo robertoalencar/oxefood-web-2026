@@ -7,10 +7,18 @@ import SaveButton from "../../../shared/components/SaveButton";
 
 export default function ClienteForm() {
 
-    const [nome, setNome] = useState();
+    const [cliente, setCliente] = useState({
+        nome: "",
+        email: "",
+        cpf: "",
+        foneCelular: "",
+        foneFixo: "",
+        dataNascimento: ""
+    });
 
-    async function salvar(form) {
+    async function salvar() {
 
+        alert('nome: ' + cliente.nome)
     }
 
     return (
@@ -46,7 +54,13 @@ export default function ClienteForm() {
 
                                     <fieldset className="fieldset w-full">
                                         <label className="fieldset-legend" htmlFor="nome">Nome</label>
-                                        <input type="text" id="nome" className="input input-bordered w-full" />
+                                        <input
+                                            id="nome"
+                                            type="text"
+                                            className="input input-bordered w-full"
+                                            value={cliente.nome}
+                                            onChange={(e) => setCliente({ ...cliente, nome: e.target.value }) }
+                                        />
                                     </fieldset>
                                     
                                 </div>
@@ -98,7 +112,7 @@ export default function ClienteForm() {
                                 <div className="card rounded-box grid grow p-8" style={{padding: '30px'}}>
 
                                     <div style={{marginTop: '50px', textAlign: 'right'}}>
-                                        <SaveButton save="/cliente" />
+                                        <SaveButton save={() => salvar()} />
                                     </div>
 
                                 </div>
