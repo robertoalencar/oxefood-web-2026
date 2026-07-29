@@ -14,7 +14,7 @@ export default function Router() {
 
                 <Route path="/home" element={<HomePage />} />
                 <Route path="/cliente" element={<ClientePage />} />
-                <Route path="/cliente-form" element={<ClienteForm />} />
+                <Route path="/cliente-form/:idCliente?" element={<ClienteForm />} />
 
             </Routes>
 

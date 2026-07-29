@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Breadcrumbs from "../../../shared/components/Breadcrumbs";
 import CrudActions from "../../../shared/components/CrudActions";
 import Footer from "../../../shared/components/Footer";
@@ -11,6 +12,7 @@ import { MAPPING_CONTROLLER_CLIENTE } from "../../cliente/service/clienteService
 export default function ClientePage() {
 
     const [lista, setLista] = useState([]);
+    const navigate = useNavigate();
 
     useEffect(() => {
 
@@ -26,6 +28,7 @@ export default function ClientePage() {
 
     function editar(id) {
 
+        navigate(`/cliente-form/${id}`);
     }
 
     async function confirmarRemover(id) {
