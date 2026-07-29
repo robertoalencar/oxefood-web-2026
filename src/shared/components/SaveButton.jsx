@@ -3,7 +3,7 @@ export default function SaveButton({ save }) {
 
     return (
 
-        <button className="btn btn-success" onClick={save}>
+        <button type="button" className="btn btn-success" onClick={save}>
 
             <svg
                 xmlns="http://www.w3.org/2000/svg"

@@ -4,8 +4,9 @@ import CrudActions from "../../../shared/components/CrudActions";
 import Footer from "../../../shared/components/Footer";
 import Menu from "../../../shared/components/Menu";
 import NewButton from "../../../shared/components/NewButton";
+import { listar } from "../../../shared/services/crudService";
 import { formatarData } from "../../../shared/util/dateUtils";
-import { listar } from "../service/clienteService";
+import { MAPPING_CONTROLLER_CLIENTE } from "../../cliente/service/clienteService";
 
 export default function ClientePage() {
 
@@ -19,7 +20,7 @@ export default function ClientePage() {
 
     async function carregar() {
 
-        const data = await listar();
+        const data = await listar(MAPPING_CONTROLLER_CLIENTE);
         setLista(data);
     }
 
