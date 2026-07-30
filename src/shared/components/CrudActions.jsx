@@ -1,8 +1,34 @@
-export default function CrudActions({ onEdit, onDelete }) {
+export default function CrudActions({ onDetail, onEdit, onDelete }) {
 
     return (
 
         <div className="flex items-center gap-2" style={{justifyContent: 'center'}}>
+
+            <button className="btn btn-accent" onClick={onDetail}>
+
+                {/* Detalhar */}
+
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth="2"
+                    stroke="currentColor"
+                    className="size-4"
+                >
+                    <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M2.036 12.322a1.012 1.012 0 010-.644C3.423 7.51 7.36 4.5 12 4.5s8.577 3.01 9.964 7.178a1.012 1.012 0 010 .644C20.577 16.49 16.64 19.5 12 19.5s-8.577-3.01-9.964-7.178z"
+                    />
+                    <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+                    />
+                </svg>
+
+            </button>
 
             {/* Alterar */}
 
