@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import Breadcrumbs from "../../../shared/components/Breadcrumbs";
 import CrudActions from "../../../shared/components/CrudActions";
 import Footer from "../../../shared/components/Footer";
 import Menu from "../../../shared/components/Menu";
 import NewButton from "../../../shared/components/NewButton";
-import { listar } from "../../../shared/services/crudService";
+import { listar, remover } from "../../../shared/services/crudService";
 import { formatarData } from "../../../shared/util/dateUtils";
 import { MAPPING_CONTROLLER_CLIENTE } from "../../cliente/service/clienteService";
 
@@ -33,10 +34,20 @@ export default function ClientePage() {
 
     async function confirmarRemover(id) {
 
-        if (confirm("Deseja realmente excluir este cliente?")) {
+        if (!confirm("Deseja realmente excluir este cliente?")) {
+            return;
+        }
 
-            //await remover(id);
-            //carregar();
+        try {
+
+            await remover(MAPPING_CONTROLLER_CLIENTE, id);
+            await carregar();
+            toast.success("Cliente removido com sucesso!");
+
+        } catch (erro) {
+
+            console.error(erro);
+            toast.error("Erro ao tentar remover o cliente.");
         }
     }
 
@@ -70,12 +81,10 @@ export default function ClientePage() {
                     <div className="overflow-x-auto" style={{marginTop: '30px'}}>
                         <table className="table table-zebra">
                             <thead>
-                                <tr>
+                                <tr style={{textAlign: 'center'}}>
                                     <th>Nome</th>
                                     <th>CPF</th>
                                     <th>Data de Nascimento</th>
-                                    <th>Fone Celular</th>
-                                    <th>Fone Fixo</th>
                                     <th>Ações</th>
                                 </tr>
                             </thead>
@@ -84,12 +93,10 @@ export default function ClientePage() {
                                 {lista.map(cliente => (
 
                                     <tr key={cliente.id}>
-                                        <td>{cliente.nome}</td>
-                                        <td>{cliente.cpf}</td>
-                                        <td>{formatarData(cliente.dataNascimento)}</td>
-                                        <td>{cliente.foneCelular}</td>
-                                        <td>{cliente.foneFixo}</td>
-                                        <td>
+                                        <td style={{width: '50%'}}>{cliente.nome}</td>
+                                        <td style={{textAlign: 'center'}}>{cliente.cpf}</td>
+                                        <td style={{textAlign: 'center'}}>{formatarData(cliente.dataNascimento)}</td>
+                                        <td style={{textAlign: 'center'}}>
                                             <CrudActions
                                                 onEdit={() => editar(cliente.id)}
                                                 onDelete={() => confirmarRemover(cliente.id)}
