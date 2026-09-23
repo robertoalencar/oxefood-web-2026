@@ -11,7 +11,7 @@ export default function Menu() {
                 <span className="megamenu-active"></span>
 
                 <button className="btn btn-ghost">
-                    <a href="/home">
+                    <a href="/">
                         Home
                     </a>
                 </button>
@@ -29,6 +29,14 @@ export default function Menu() {
                     <ul className="menu">
                         <li><a href="/produto">Listar</a></li>
                         <li><a href="#">Cadastrar</a></li>
+                    </ul>
+                </div>
+
+                <button popoverTarget="menu-categoria-produto"> <strong> Categoria de Produto </strong> </button>
+                <div id="menu-categoria-produto" popover="auto">
+                    <ul className="menu">
+                        <li><a href="/categoriaproduto">Listar</a></li>
+                        <li><a href="/categoriaproduto-form">Cadastrar</a></li>
                     </ul>
                 </div>
 
