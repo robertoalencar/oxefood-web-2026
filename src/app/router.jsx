@@ -5,6 +5,7 @@ import CategoriaProdutoPage from "../features/categoriaproduto/page/CategoriaPro
 import ClienteForm from "../features/cliente/page/ClienteForm";
 import ClientePage from "../features/cliente/page/ClientePage";
 import HomePage from "../features/home/page/Home";
+import ProdutoForm from "../features/produto/page/ProdutoForm";
 import ProdutoPage from "../features/produto/page/ProdutoPage";
 
 export default function Router() {
@@ -21,6 +22,7 @@ export default function Router() {
                 <Route path="/cliente-form/:idCliente?" element={<ClienteForm />} />
 
                 <Route path="/produto" element={<ProdutoPage />} />
+                <Route path="/produto-form/:idProduto?" element={<ProdutoForm />} />
 
                 <Route path="/categoriaproduto" element={<CategoriaProdutoPage />} />
                 <Route path="/categoriaproduto-form/:idCategoria?" element={<CategoriaProdutoForm />} />

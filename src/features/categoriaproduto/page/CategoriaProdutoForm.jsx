@@ -89,10 +89,10 @@ export default function CategoriaProdutoForm() {
 
                     <div className="divider divider-info" />
 
-                    <div className="overflow-x-auto" style={{padding: '30px'}}>
+                    <div className="overflow-x-auto" style={{padding: '10px'}}>
                         <form>
 
-                            <div className="card rounded-box grid grow p-8" style={{padding: '30px'}}>
+                            <div className="card rounded-box grid grow p-8" style={{padding: '10px'}}>
 
                                 <fieldset className="fieldset w-full">
                                     <label className="fieldset-legend" htmlFor="nome">Nome</label>
@@ -110,14 +110,14 @@ export default function CategoriaProdutoForm() {
                             </div>
 
                             <div className="flex w-full" >
-                                <div className="card rounded-box grid grow p-8" style={{padding: '30px'}}>
+                                <div className="card rounded-box grid grow p-8" style={{padding: '10px'}}>
 
                                     <div style={{marginTop: '50px', textAlign: 'left'}}>
                                         <BackButton destino="/categoriaproduto" />
                                     </div>
                                     
                                 </div>
-                                <div className="card rounded-box grid grow p-8" style={{padding: '30px'}}>
+                                <div className="card rounded-box grid grow p-8" style={{padding: '10px'}}>
 
                                     <div style={{marginTop: '50px', textAlign: 'right'}}>
                                         <SaveButton save={() => salvar()} />

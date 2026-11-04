@@ -15,6 +15,7 @@ export default function ProdutoPage() {
     const navigate = useNavigate();
     const [produto, setProduto] = useState({
         id: null,
+        categoria: "",
         codigo: "",
         titulo: "",
         descricao: "",
@@ -72,6 +73,7 @@ export default function ProdutoPage() {
 
             setProduto({
                 id: data.id,
+                categoria: data.categoria ?? "",
                 codigo: data.codigo ?? "",
                 titulo: data.titulo ?? "",
                 descricao: data.descricao ?? "",
@@ -119,6 +121,7 @@ export default function ProdutoPage() {
                         <table className="table table-zebra">
                             <thead>
                                 <tr style={{textAlign: 'center'}}>
+                                    <th>Categoria</th>
                                     <th>Código</th>
                                     <th>Título</th>
                                     <th>Valor Unitário</th>
@@ -130,6 +133,7 @@ export default function ProdutoPage() {
                                 {lista.map(produto => (
 
                                     <tr key={produto.id}>
+                                        <td style={{textAlign: 'center'}}>{produto.categoria.descricao}</td>
                                         <td style={{textAlign: 'center'}}>{produto.codigo}</td>
                                         <td style={{width: '50%'}}>{produto.titulo}</td>
                                         <td style={{textAlign: 'center'}}>{produto.valorUnitario}</td>
@@ -156,6 +160,9 @@ export default function ProdutoPage() {
                     
                     <h3 className="font-bold text-lg">Dados do Cliente</h3>
                     <div className="divider" />
+                    <p className="py-4"> 
+                        <strong>Categoria:</strong> {produto.categoria.descricao}
+                    </p>
                     <p className="py-4"> 
                         <strong>Código:</strong> {produto.codigo}
                     </p>

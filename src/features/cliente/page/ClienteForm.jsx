@@ -79,10 +79,20 @@ export default function ClienteForm() {
 
             <Menu />
 
-            <Breadcrumbs items={[
-                { label: "Cliente" },
-                { label: "Alterar" }
-            ]} />
+            {idCliente ? 
+            
+                <Breadcrumbs items={[
+                    { label: "Cliente" },
+                    { label: "Alterar" }
+                ]} />
+
+                : 
+
+                <Breadcrumbs items={[
+                    { label: "Cliente" },
+                    { label: "Cadastrar" }
+                ]} />
+            }
 
             <div style={{ marginTop: '40px', marginLeft: '10%', marginRight: '10%' }}>
 
@@ -98,11 +108,11 @@ export default function ClienteForm() {
 
                     <div className="divider divider-info" />
 
-                    <div className="overflow-x-auto" style={{padding: '30px'}}>
+                    <div className="overflow-x-auto" style={{padding: '10px'}}>
                         <form>
 
                             <div className="flex w-full" >
-                                <div className="card rounded-box grid grow p-8" style={{padding: '30px'}}>
+                                <div className="card rounded-box grid grow p-8" style={{padding: '10px'}}>
 
                                     <fieldset className="fieldset w-full">
                                         <label className="fieldset-legend" htmlFor="nome">Nome</label>
@@ -118,7 +128,7 @@ export default function ClienteForm() {
                                     </fieldset>
                                     
                                 </div>
-                                <div className="card rounded-box grid grow p-8" style={{padding: '30px'}}>
+                                <div className="card rounded-box grid grow p-8" style={{padding: '10px'}}>
 
                                     <fieldset className="fieldset w-full">
                                         <label className="fieldset-legend" htmlFor="cpf">CPF</label>
@@ -137,7 +147,7 @@ export default function ClienteForm() {
                             </div>
 
                             <div className="flex w-full" >
-                                <div className="card rounded-box grid grow p-8" style={{padding: '30px'}}>
+                                <div className="card rounded-box grid grow p-8" style={{padding: '10px'}}>
 
                                     <fieldset className="fieldset w-full">
                                         <label className="fieldset-legend" htmlFor="foneCelular">Fone Celular</label>
@@ -153,7 +163,7 @@ export default function ClienteForm() {
                                     </fieldset>
                                     
                                 </div>
-                                <div className="card rounded-box grid grow p-8" style={{padding: '30px'}}>
+                                <div className="card rounded-box grid grow p-8" style={{padding: '10px'}}>
 
                                     <fieldset className="fieldset w-full">
                                         <label className="fieldset-legend" htmlFor="foneFixo">Fone Fixo</label>
@@ -169,7 +179,7 @@ export default function ClienteForm() {
                                     </fieldset>
                                     
                                 </div>
-                                <div className="card rounded-box grid grow p-8" style={{padding: '30px'}}>
+                                <div className="card rounded-box grid grow p-8" style={{padding: '10px'}}>
 
                                     <fieldset className="fieldset w-full">
                                         <legend className="fieldset-legend" htmlFor="dataNascimento">Data de Nascimento</legend>
@@ -188,14 +198,14 @@ export default function ClienteForm() {
                             </div>
 
                             <div className="flex w-full" >
-                                <div className="card rounded-box grid grow p-8" style={{padding: '30px'}}>
+                                <div className="card rounded-box grid grow p-8" style={{padding: '10px'}}>
 
                                     <div style={{marginTop: '50px', textAlign: 'left'}}>
                                         <BackButton destino="/cliente" />
                                     </div>
                                     
                                 </div>
-                                <div className="card rounded-box grid grow p-8" style={{padding: '30px'}}>
+                                <div className="card rounded-box grid grow p-8" style={{padding: '10px'}}>
 
                                     <div style={{marginTop: '50px', textAlign: 'right'}}>
                                         <SaveButton save={() => salvar()} />
