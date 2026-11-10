@@ -68,8 +68,6 @@ export default function ClientePage() {
                 id
             );
 
-            console.log(data);
-
             setCliente({
                 id: data.id,
                 nome: data.nome ?? "",
