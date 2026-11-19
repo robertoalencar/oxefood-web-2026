@@ -79,8 +79,6 @@ export default function ProdutoPage() {
                 id
             );
 
-            console.log(data);
-
             setProduto({
                 id: data.id,
                 categoria: data.categoria ?? "",
@@ -97,7 +95,6 @@ export default function ProdutoPage() {
         } catch (erro) {
             toast.error("Erro ao carregar produto.");
         }
-
     }
 
     function handleMenuFiltro() {
@@ -241,6 +238,7 @@ export default function ProdutoPage() {
                         <table className="table table-zebra">
                             <thead>
                                 <tr style={{textAlign: 'center'}}>
+                                    <th>Produto</th>
                                     <th>Categoria</th>
                                     <th>Código</th>
                                     <th>Título</th>
@@ -253,6 +251,13 @@ export default function ProdutoPage() {
                                 {lista.map(produto => (
 
                                     <tr key={produto.id}>
+                                        <td style={{textAlign: 'center'}}> 
+                                            <img
+                                                src={`/imagens_cadastradas/${produto.imagem}`}
+                                                alt="Imagem do produto"
+                                                className="w-40 h-40 object-contain border border-gray-300 rounded-lg p-2"
+                                            />
+                                        </td>
                                         <td style={{textAlign: 'center'}}>{produto.categoria.descricao}</td>
                                         <td style={{textAlign: 'center'}}>{produto.codigo}</td>
                                         <td style={{width: '50%'}}>{produto.titulo}</td>
